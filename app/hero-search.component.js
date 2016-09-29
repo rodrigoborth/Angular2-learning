@@ -20,7 +20,9 @@ var HeroSearchComponent = (function () {
         this.searchTerms = new Subject_1.Subject();
     }
     // Push a search term into the observable stream.
-    HeroSearchComponent.prototype.search = function (term) { this.searchTerms.next(term); };
+    HeroSearchComponent.prototype.search = function (term) {
+        this.searchTerms.next(term);
+    };
     HeroSearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.heroes = this.searchTerms
@@ -41,9 +43,10 @@ var HeroSearchComponent = (function () {
     };
     HeroSearchComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'hero-search',
-            templateUrl: 'app/hero-search.component.html',
-            styleUrls: ['app/hero-search.component.css'],
+            templateUrl: 'hero-search.component.html',
+            styleUrls: ['hero-search.component.css'],
             providers: [hero_search_service_1.HeroSearchService]
         }), 
         __metadata('design:paramtypes', [hero_search_service_1.HeroSearchService, router_1.Router])
@@ -51,4 +54,9 @@ var HeroSearchComponent = (function () {
     return HeroSearchComponent;
 }());
 exports.HeroSearchComponent = HeroSearchComponent;
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ 
 //# sourceMappingURL=hero-search.component.js.map

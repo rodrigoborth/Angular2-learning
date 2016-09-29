@@ -1,24 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
-
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
 
 import { HeroSearchService } from './hero-search.service';
-
 import { Hero } from './hero';
 
 @Component({
+  moduleId: module.id,
   selector: 'hero-search',
-  templateUrl: 'app/hero-search.component.html',
-  styleUrls:  ['app/hero-search.component.css'],
+  templateUrl: 'hero-search.component.html',
+  styleUrls: [ 'hero-search.component.css' ],
   providers: [HeroSearchService]
 })
-
 export class HeroSearchComponent implements OnInit {
-
   heroes: Observable<Hero[]>;
-
   private searchTerms = new Subject<string>();
 
   constructor(
@@ -26,9 +22,11 @@ export class HeroSearchComponent implements OnInit {
     private router: Router) {}
 
   // Push a search term into the observable stream.
-  search(term: string) { this.searchTerms.next(term); }
+  search(term: string): void {
+    this.searchTerms.next(term);
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.heroes = this.searchTerms
       .debounceTime(300)        // wait for 300ms pause in events
       .distinctUntilChanged()   // ignore if next search term is same as previous
@@ -44,9 +42,15 @@ export class HeroSearchComponent implements OnInit {
       });
   }
 
-  gotoDetail(hero: Hero) {
+  gotoDetail(hero: Hero): void {
     let link = ['/detail', hero.id];
     this.router.navigate(link);
   }
-
 }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/

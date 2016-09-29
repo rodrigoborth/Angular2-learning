@@ -10,64 +10,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var hero_1 = require('./hero');
+var common_1 = require('@angular/common');
 var hero_service_1 = require('./hero.service');
 var HeroDetailComponent = (function () {
-    function HeroDetailComponent(heroService, route) {
+    function HeroDetailComponent(heroService, route, location) {
         this.heroService = heroService;
         this.route = route;
-        this.close = new core_1.EventEmitter();
-        this.navigated = false; // true if navigated here
+        this.location = location;
     }
     HeroDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
-            if (params['id'] !== undefined) {
-                var id = +params['id'];
-                _this.navigated = true;
-                _this.heroService.getHero(id)
-                    .then(function (hero) { return _this.hero = hero; });
-            }
-            else {
-                _this.navigated = false;
-                _this.hero = new hero_1.Hero();
-            }
+            var id = +params['id'];
+            _this.heroService.getHero(id)
+                .then(function (hero) { return _this.hero = hero; });
         });
     };
     HeroDetailComponent.prototype.save = function () {
         var _this = this;
-        this.heroService
-            .save(this.hero)
-            .then(function (hero) {
-            _this.hero = hero; // saved hero, w/ id if new
-            _this.goBack(hero);
-        })
-            .catch(function (error) { return _this.error = error; }); // TODO: Display error message
+        this.heroService.update(this.hero)
+            .then(function () { return _this.goBack(); });
     };
-    HeroDetailComponent.prototype.goBack = function (savedHero) {
-        if (savedHero === void 0) { savedHero = null; }
-        this.close.emit(savedHero);
-        if (this.navigated) {
-            window.history.back();
-        }
+    HeroDetailComponent.prototype.goBack = function () {
+        this.location.back();
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', hero_1.Hero)
-    ], HeroDetailComponent.prototype, "hero", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], HeroDetailComponent.prototype, "close", void 0);
     HeroDetailComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-hero-detail',
-            templateUrl: 'app/hero-detail.component.html',
-            styleUrls: ['app/hero-detail.component.css'],
+            templateUrl: 'hero-detail.component.html',
+            styleUrls: ['hero-detail.component.css']
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.ActivatedRoute, common_1.Location])
     ], HeroDetailComponent);
     return HeroDetailComponent;
 }());
 exports.HeroDetailComponent = HeroDetailComponent;
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ 
 //# sourceMappingURL=hero-detail.component.js.map
