@@ -17,6 +17,7 @@ var app_component_1 = require('./app.component');
 //Components
 var header_component_1 = require('./component/header/header.component');
 var footer_component_1 = require('./component/footer/footer.component');
+var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 //Modules
 var home_component_1 = require('./module/home/home.component');
 var app_routing_1 = require('./app.routing');
@@ -29,6 +30,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
+                ng2_bootstrap_1.AlertModule,
                 app_routing_1.routing
             ],
             declarations: [
@@ -47,9 +49,4 @@ var AppModule = (function () {
     return AppModule;
 }());
 exports.AppModule = AppModule;
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/ 
 //# sourceMappingURL=app.module.js.map

@@ -16,7 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <header-component></header-component>\n    <router-outlet></router-outlet>\n    <footer-component></footer-component>\n  ",
+            template: "\n    <alert type=\"success\">Hello guys!</alert>\n    <header-component></header-component>\n    <router-outlet></router-outlet>\n    <footer-component></footer-component>\n  ",
             styleUrls: ['app/app.component.css']
         }), 
         __metadata('design:paramtypes', [])

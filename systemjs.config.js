@@ -18,13 +18,14 @@
     },
     paths: {
       // paths serve as alias
-      'npm:': 'https://unpkg.com/'
+      'npm:': 'https://unpkg.com/',
+      "ng2-bootstrap/ng2-bootstrap":   "node_modules/ng2-bootstrap/ng2-bootstrap"
     },
     // map tells the System loader where to look for things
     map: {
       // our app is within the app folder
       app: 'app',
-
+      moment: 'node_modules/moment/moment.js',
       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -35,10 +36,9 @@
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
-
+  
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'ts':                        'npm:plugin-typescript@4.0.10/lib/plugin.js',
       'typescript':                'npm:typescript@2.0.2/lib/typescript.js',
 
@@ -52,9 +52,8 @@
       rxjs: {
         defaultExtension: 'js'
       },
-      'angular-in-memory-web-api': {
-        main: './index.js',
-        defaultExtension: 'js'
+      "node_modules/ng2-bootstrap": {
+        defaultExtension: "js"
       }
     }
   });

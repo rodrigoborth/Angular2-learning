@@ -9,6 +9,7 @@ import { AppComponent }         from './app.component';
 //Components
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 //Modules
 import { HomeComponent }  from './module/home/home.component';
 import { routing }              from './app.routing';
@@ -18,6 +19,7 @@ import { routing }              from './app.routing';
     BrowserModule,
     FormsModule,
     HttpModule,
+    AlertModule,
     routing
   ],
   declarations: [
@@ -33,10 +35,3 @@ import { routing }              from './app.routing';
 })
 export class AppModule {
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

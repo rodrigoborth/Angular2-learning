@@ -4,6 +4,7 @@ import { Component }          from '@angular/core';
   selector: 'my-app',
 
   template: `
+    <alert type="success">Hello guys!</alert>
     <header-component></header-component>
     <router-outlet></router-outlet>
     <footer-component></footer-component>
