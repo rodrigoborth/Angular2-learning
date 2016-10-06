@@ -9,26 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var HeroSearchService = (function () {
-    function HeroSearchService(http) {
-        this.http = http;
+var HeaderComponent = (function () {
+    function HeaderComponent() {
     }
-    HeroSearchService.prototype.search = function (term) {
-        return this.http
-            .get("app/heroes/?name=" + term)
-            .map(function (r) { return r.json().data; });
+    HeaderComponent.prototype.ngOnInit = function () {
+        //
     };
-    HeroSearchService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], HeroSearchService);
-    return HeroSearchService;
+    HeaderComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'header-component',
+            templateUrl: 'header.component.html',
+            styleUrls: ['header.component.css']
+        }), 
+        __metadata('design:paramtypes', [])
+    ], HeaderComponent);
+    return HeaderComponent;
 }());
-exports.HeroSearchService = HeroSearchService;
+exports.HeaderComponent = HeaderComponent;
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 */ 
-//# sourceMappingURL=hero-search.service.js.map
+//# sourceMappingURL=header.component.js.map
